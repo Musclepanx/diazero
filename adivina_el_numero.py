@@ -5,11 +5,17 @@ Tienes 3 intentos""")
 import random
 solucion=random.randint(1,10)
 
-primer_intento = input("Primer intento:")
 
-if primer_intento==solucion:
-    print("Enhorabuena " +nombre+ "has adivinado el nº a la primera!")
+for ronda in range(1, 4):
+    intento=int(input("Adivina el nº: "))
+    if intento > solucion:
+        print("El número es menor que " +str(intento) +" prueba de nuevo:")
+    elif intento < solucion:
+        print("El número es mayor que " +str(intento) +" prueba de nuevo:")
+    else:
+        break
+
+if intento == solucion:
+    print("Enhorabuena " +nombre +" has adivinado el número en el"  +str(ronda)+ "º intento")
 else:
-    input("Lo siento " +nombre+ " inténtalo de nuevo: ")
-
-#en proceso...
+    print("Lo siento " +nombre +" el nº que estaba pensando era el " +str(solucion))
